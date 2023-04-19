@@ -1,0 +1,19 @@
+
+nav{
+    max-width: 100%;
+    background-color:#F2F3F4;
+    display: flex;
+    text-align: end;
+    justify-content: space-between;
+    font-family:fantasy ;
+    color: #1B1B1B;
+    margin: 5px;
+}
+div button{
+    background:#969595;
+    border: none;
+
+}
+button{
+    font-size: 20px;
+}
