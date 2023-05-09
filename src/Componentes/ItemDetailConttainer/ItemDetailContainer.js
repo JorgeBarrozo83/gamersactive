@@ -12,8 +12,8 @@ const{itemId}= useParams()
     useEffect(()=>{
         getProductosById(itemId)
         .then(response =>{setProducto(response)})
-        .cach(error=>{console.error(error)})
-    }, [])
+        .catch(error=>{console.error(error)})
+    }, [itemId])
 
     return(
         <div className="ItemDetailContainer">
