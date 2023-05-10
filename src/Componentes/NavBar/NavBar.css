@@ -9,12 +9,10 @@ nav{
     color: #1B1B1B;
     margin: 5px;
 }
-div button{
-    background:#969595;
-    border: none;
 
-}
-button{
-    font-size: 20px;
+.NavBar{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
 }
 

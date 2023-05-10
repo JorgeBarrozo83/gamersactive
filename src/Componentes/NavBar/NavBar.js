@@ -8,7 +8,7 @@ const NavBar = ()=>{
         <Link to="/">
            <h2 className="marca"> Gamers Active </h2>
         </Link>
-        <div>
+        <div className="NavBar">
         <NavLink to={`/categoria/Consola`} className={({isActive})=> isActive ? "ActiveOpcion" : "Opcion"}>Consolas</NavLink>
         <NavLink to={`/categoria/Juego`} className={({isActive})=> isActive ? "ActiveOpcion" : "Opcion"}>Juegos</NavLink>
         <NavLink to={`/categoria/Accesorio`} className={({isActive})=> isActive ? "ActiveOpcion" : "Opcion"}>Accesorios</NavLink>
