@@ -1,7 +1,6 @@
-.CardProd{
-    margin: 20px;
-    width: 25%;
-    border-radius: 5px;
-    box-shadow: 1px, 2px, 1px ;
-    color: #922929;
+.CardItem{
+   color: #922929;
+}
+.ItemFooter{
+    padding: 10px;
 }

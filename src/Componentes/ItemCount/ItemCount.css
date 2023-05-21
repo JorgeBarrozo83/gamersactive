@@ -1,11 +1,21 @@
-.controles{
+.Counter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Controls{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding: 10px;
-    
 }
 
-.boton{
-    background-color: rgb(62, 148, 160);
+.Button{
+    margin: 10px 20px 0px 20px;
+    color: #922929;
+    font-family:cursive;
+    font-size: 20px;
+
+}
+.Number{
+    margin: 10px;
 }

@@ -1,18 +1,20 @@
-
-nav{
-    max-width: 100%;
-    background-color:#F2F3F4;
-    display: flex;
-    text-align: end;
-    justify-content: space-between;
-    font-family:fantasy ;
-    color: #1B1B1B;
-    margin: 5px;
-}
-
 .NavBar{
-    list-style: none;
+    list-style-type: none;
+    text-decoration: none;
     display: flex;
     justify-content: space-evenly;
+    font-family: cursive;
+    font-size: 25px;
+    margin: 30px;
+
+}
+
+.ItemHeader{
+    font-family: fantasy;
+    font-size: 50px;
+    color: #922929;
+    background-color: #A9A9A9;
+    text-decoration: none;
+    list-style-type: none;
 }
 

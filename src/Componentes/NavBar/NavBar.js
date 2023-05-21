@@ -4,9 +4,9 @@ import "./NavBar.css"
 
 const NavBar = ()=>{
     return(
-        <nav>
+        <nav className="Header">
         <Link to="/">
-           <h2 className="marca"> Gamers Active </h2>
+           <h2 className="ItemHeader"> Gamers Active </h2>
         </Link>
         <div className="NavBar">
         <NavLink to={`/categoria/Consola`} className={({isActive})=> isActive ? "ActiveOpcion" : "Opcion"}>Consolas</NavLink>

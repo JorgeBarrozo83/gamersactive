@@ -1,6 +1,6 @@
 
 const productos =[
-    {id:"1", name:"Play Station 4", precio:"190.000", categoria:"Consola", img:"https://i.postimg.cc/bJkL0KVd/Play4.png", stock:"15",descripcion:"Memoria 100 GB" },
+    {id:"1", name:"Play Station 4", precio:"190.000", categoria:"Consola", img:"https://i.postimg.cc/bJkL0KVd/Play4.png", stock:"15",descripcion:"Memoria 1 TB" },
     {id:"2", name:"Play Station 5", precio:"350.000", categoria:"Consola",img:"https://i.postimg.cc/WzV85Xx8/Play5.png", stock:"10",descripcion:"Para juegos fisicos"},
     {id:"3", name:"Nintendo Switch", precio:"180.000", categoria:"Consola", img:"https://i.postimg.cc/hv44bq40/nintendo-Switch-Home.png",stock:"8",descripcion:"Consola regular"},
     {id:"4", name:"Nintendo Switch Lite", precio:"110.000", categoria:"Consola", img:"https://i.postimg.cc/9QDMnVd8/nintendo-Switch-Lite.png",stock:"7", descripcion:"Portatil"},
