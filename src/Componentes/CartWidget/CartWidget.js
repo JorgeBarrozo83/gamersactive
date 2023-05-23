@@ -4,11 +4,11 @@ import { CartContext } from "../../CartContext/CartContext"
 import { Link } from "react-router-dom"
 
 const CartWidget = ()=>{
-    const{ totalQuantity }= useContext(CartContext)
+    const {getQuantity} = useContext(CartContext)
     return(
         <Link to="/cart">
             <img className="CartImg" src={cart} alt="cart-widget"/>
-            { totalQuantity }
+            { getQuantity() } 
         </Link>
     )
 }
