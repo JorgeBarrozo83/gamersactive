@@ -9,7 +9,7 @@ export const CartProvider =({ children })=>{
 
     const getQuantity = () => {
         let cant = 0
-        cart.forEach((e) => cant += e.quantity)
+        cart.forEach((e) => cant += e.cantidad)
         return cant
     };
 
@@ -22,6 +22,7 @@ export const CartProvider =({ children })=>{
     }
 
     const removeItem = (itemId) =>{
+        console.log(itemId)
         const cartUpdate = cart.filter(prod => prod.id !== itemId)
         setCart(cartUpdate)
     }

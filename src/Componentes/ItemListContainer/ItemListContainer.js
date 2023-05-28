@@ -1,26 +1,38 @@
 import "./ItemListContainer.css"
-import{getProductos, getProductosById} from "../../asyncMock"
 import{useState , useEffect} from "react"
 import ItemList from "../ItemList/ItemList"
 import { useParams } from "react-router-dom"
+import { getDocs, collection, query, where } from "firebase/firestore"
+import { db } from "../../service/firebase/firebaseConfig"
 
 
 const ItemListContainer = ({greeting})=>{
     const[productos, setProductos] = useState([])
+    const[loading, setLoading] = useState(true)
+
     const {categoriaId} = useParams()
+
     useEffect(()=>{
-       getProductos()
-        .then(response =>{
-            if(categoriaId){
-                setProductos(response.filter((item)=> item.categoria === categoriaId))
-            }else{
-                setProductos(response)
-            }
+       setLoading(true)
+
+       const collectionRef = categoriaId
+       ? query(collection(db, "productos"), where("categoria", "==", categoriaId))
+       : collection (db, "productos")
+
+       getDocs(collectionRef)
+       .then(response =>{
+        const productosAdapted = response.docs.map(doc =>{
+            const data = doc.data()
+            return { id: doc.id, ...data }
         })
-        .catch(error =>{
-            console.error(error)
-        })
-    }, [categoriaId])
+        setProductos(productosAdapted)
+       })
+       .catch(error =>{
+        console.log(error)
+       })
+       .finally(()=>{
+        setLoading(false)
+       })})
     return(
         <div>
             <h1>{greeting}</h1>

@@ -10,6 +10,7 @@ const CartWidget = ()=>{
             <img className="CartImg" src={cart} alt="cart-widget"/>
             { getQuantity() } 
         </Link>
-    )
-}
+    ) 
+} 
+
 export default CartWidget
