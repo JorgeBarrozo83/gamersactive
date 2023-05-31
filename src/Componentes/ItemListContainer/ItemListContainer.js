@@ -13,33 +13,34 @@ const ItemListContainer = ({greeting})=>{
     const {categoriaId} = useParams()
 
     useEffect(()=>{
-       setLoading(true)
-
-       const collectionRef = categoriaId
-       ? query(collection(db, "Items"), where("categoria", "==", categoriaId))
-       : collection (db, "Items")
-
-       getDocs(collectionRef)
-       .then((response) =>{
-        const productosAdapted = response.docs.map((doc) =>{
-            const data = doc.data()
-            return { id: doc.id, ...data }
+        setLoading(true)
+ 
+        const collectionRef = categoriaId
+        ? query(collection(db, "Items"), where("categoria", "==", categoriaId))
+        : collection (db, "Items")
+ 
+        getDocs(collectionRef)
+        .then((response) =>{
+         const productosAdapted = response.docs.map((doc) =>{
+             const data = doc.data()
+             return { id: doc.id, ...data }
+         })
+         setProductos(productosAdapted)
         })
-        setProductos(productosAdapted)
-       })
-       .catch(error =>{
-        console.log(error)
-       })
-       .finally(() => {
-        setLoading(false);
-        }, [categoriaId]);
-       })
+        .catch(error =>{
+         console.log(error)
+        })
+        .finally(() => {
+         setLoading(false);
+         });
+        },[categoriaId])
+       
     return(
         <div>
             <h1>{greeting}</h1>
             <ItemList productos={productos}/>
         </div>
     )
-}
+    }
 
 export default ItemListContainer
