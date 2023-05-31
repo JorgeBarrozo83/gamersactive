@@ -16,12 +16,12 @@ const ItemListContainer = ({greeting})=>{
        setLoading(true)
 
        const collectionRef = categoriaId
-       ? query(collection(db, "productos"), where("categoria", "==", categoriaId))
-       : collection (db, "productos")
+       ? query(collection(db, "Items"), where("categoria", "==", categoriaId))
+       : collection (db, "Items")
 
        getDocs(collectionRef)
-       .then(response =>{
-        const productosAdapted = response.docs.map(doc =>{
+       .then((response) =>{
+        const productosAdapted = response.docs.map((doc) =>{
             const data = doc.data()
             return { id: doc.id, ...data }
         })
@@ -30,9 +30,10 @@ const ItemListContainer = ({greeting})=>{
        .catch(error =>{
         console.log(error)
        })
-       .finally(()=>{
-        setLoading(false)
-       })})
+       .finally(() => {
+        setLoading(false);
+        }, [categoriaId]);
+       })
     return(
         <div>
             <h1>{greeting}</h1>

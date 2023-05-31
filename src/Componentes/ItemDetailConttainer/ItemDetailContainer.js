@@ -14,7 +14,7 @@ const{itemId}= useParams()
     useEffect(()=>{
         setLoading(true)
 
-        const docRef = doc(db, "productos", itemId)
+        const docRef = doc(db, "Items", itemId)
 
         getDoc(docRef)
         .then(response =>{
