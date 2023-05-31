@@ -26,7 +26,8 @@ const CheckoutForm =({onConfirm}) =>{
                     Telefono 
                     <input className="Input" type="number" value={telefono} onChange={({ target })=> setTelefono(target.value)} />
                 </label>
-                <label>
+                <label className="Label">
+                    E-mail
                     <input className="Input" type="e-mail" value={email} onChange={({ target })=> setEmail(target.value)} />
                 </label>
                 <div>

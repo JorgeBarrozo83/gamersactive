@@ -39,7 +39,7 @@ const Checkout =()=>{
 
             docs.forEach(doc =>{
                 const dataDoc = doc.data()
-                const stockDb = dataDoc.stock
+                const stockDb = dataDoc.Stock
 
                 const productAddedToCart = cart.find( prod.id === doc.id)
                 const prodQuantity = productAddedToCart?.cantidad

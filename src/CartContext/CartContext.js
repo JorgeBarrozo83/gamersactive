@@ -36,7 +36,7 @@ export const CartProvider =({ children })=>{
     }
 
     const sumTotal = () =>{
-        return cart.reduce((total, item) =>total += item.cantidad * item.precio, 0)
+        return cart.reduce((total, item) =>total += item.cantidad * item.Precio, 0)
     }
 
     return(

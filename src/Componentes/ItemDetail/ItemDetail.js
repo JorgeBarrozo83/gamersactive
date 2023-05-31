@@ -4,7 +4,7 @@ import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../CartContext/CartContext"
 
-const ItemDetail= ({id, name, precio, categoria, img, stock, descripcion})=>{
+const ItemDetail= ({id, Title, Precio, categoria, Imagen, Stock, Descripcion})=>{
     const [quantityAdded, setQuantityAdded]= useState(0)
 
     const { addItem }=useContext(CartContext)
@@ -13,7 +13,7 @@ const ItemDetail= ({id, name, precio, categoria, img, stock, descripcion})=>{
         setQuantityAdded(cantidad)
 
         const item ={
-            id, name, precio, img
+            id, Title, Precio, Imagen
         }
 
         addItem(item, cantidad)
@@ -22,21 +22,21 @@ const ItemDetail= ({id, name, precio, categoria, img, stock, descripcion})=>{
         <article className="CardItem">
             <header className="Header">
                 <h2 className="ItemHeader">
-                    {name}
+                    {Title}
                 </h2>
             </header>
             <picture>
-                <img src={img} alt={name} className="ItemImg" />
+                <img src={Imagen} alt={Title} className="ItemImg" />
             </picture>
             <section>
                 <p className="Info">
                     Categoria: {categoria}
                 </p>
                 <p className="Info">
-                    Descripcion:{descripcion}
+                    Descripcion:{Descripcion}
                 </p>
                 <p className="Info">
-                    Precio:$ {precio}
+                    Precio:$ {Precio}
                 </p>
             </section>
             <footer className="ItemFooter">
@@ -44,7 +44,7 @@ const ItemDetail= ({id, name, precio, categoria, img, stock, descripcion})=>{
                     quantityAdded > 0 ?(
                         <Link to="/cart" className="Opcion">Terminar compra</Link>
                     ) : (
-                        <ItemCount inicial={1} stock={stock} agregar={handleOnAdd}/>
+                        <ItemCount inicial={1} stock={Stock} agregar={handleOnAdd}/>
                     )
                 }
             </footer>

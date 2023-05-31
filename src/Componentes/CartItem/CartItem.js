@@ -5,14 +5,14 @@ import { CartContext } from "../../CartContext/CartContext"
 import "../CartWidget/CartWidget"
 import { Link } from "react-router-dom";
 
-const CartItem = ({ id, name, img ,precio, cantidad }) => {
+const CartItem = ({ id, Title, Imagen ,Precio, cantidad }) => {
   return (
     <div>
-      <h4>{name}</h4>
+      <h4>{Title}</h4>
       <picture>
-      <img src={img} alt={name} className="ItemImg" />
+      <img src={Imagen} alt={Title} className="ItemImg" />
       </picture>
-      <p>Precio: ${precio}</p>
+      <p>Precio: ${Precio}</p>
       <p>Cantidad: {cantidad}</p>
       
      
