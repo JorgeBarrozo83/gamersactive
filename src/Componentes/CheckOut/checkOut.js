@@ -1,22 +1,10 @@
 
 import { collection, getDocs, query, where, writeBatch, addDoc, serverTimestamp, documentId} from "firebase/firestore";
 import { db } from "../../service/firebase/firebaseConfig";
-import { useContext, useState, prod } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../CartContext/CartContext";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
-const generateOrderId = () => {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    let orderId = "";
-    const length = 8; 
-  
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      orderId += characters.charAt(randomIndex);
-    }
-  
-    return orderId;
-  };
 
 
 const Checkout =()=>{
@@ -34,7 +22,7 @@ const Checkout =()=>{
                     name, telefono, email
                 },
                 items: cart,
-                total: sumTotal,
+                total: sumTotal(),
                 date: serverTimestamp()
             }
 
@@ -52,9 +40,9 @@ const Checkout =()=>{
 
             docs.forEach(doc =>{
                 const dataDoc = doc.data()
-                const stockDb = dataDoc.stock
+                const stockDb = dataDoc.Stock
 
-                const productAddedToCart = cart.find( prod.id === doc.id)
+                const productAddedToCart = cart.find( prod=>prod.id === doc.id)
                 const prodQuantity = productAddedToCart?.cantidad
 
                 if(stockDb >= prodQuantity) {
@@ -72,8 +60,8 @@ const Checkout =()=>{
 
                 const orderAdded = await addDoc(orderRef, objOrden)
 
-                const generatedOrderId = generateOrderId();
-                setOrderId(generatedOrderId);
+                
+                setOrderId(orderAdded.id);
                 clearCart()
             }else{
                 console.error("hay productos fuera de stock")

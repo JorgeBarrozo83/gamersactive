@@ -3,7 +3,7 @@ import React from "react";
 import "../CartWidget/CartWidget"
 
 
-const CartItem = ({ id, Title, Imagen ,Precio, cantidad }) => {
+const CartItem = ({ Title, Imagen ,Precio, cantidad }) => {
   return (
     <div>
       <h4>{Title}</h4>
