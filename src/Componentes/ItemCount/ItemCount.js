@@ -1,4 +1,4 @@
-import { Button } from "bootstrap"
+
 import "./ItemCount.css"
 import {useState} from "react"
 
@@ -19,14 +19,14 @@ const ItemCount= ({stock, inicial, agregar})=>{
     return(
         <div className="Counter">
             <div className="Controls">
-                <Button className="Button" onClick={decrement}>-</Button>
+                <button className="Button" onClick={decrement}>-</button>
                 <h4 className="Number">{cantidad}</h4>
-                <Button className="Button" onClick={increment}>+</Button>
+                <button className="Button" onClick={increment}>+</button>
             </div>
             <div>
-                <Button className="Button" onClick={()=>agregar(cantidad)} disable={!stock}>
+                <button className="Button" onClick={()=>agregar(cantidad)} disable={!stock}>
                     Agregar al carrito
-                </Button>
+                </button>
             </div>
         </div>
     )

@@ -1,9 +1,22 @@
 
-import { collection, getDocs, query, where, writeBatch, addDoc, Timestamp, documentId} from "firebase/firestore";
+import { collection, getDocs, query, where, writeBatch, addDoc, serverTimestamp, documentId} from "firebase/firestore";
 import { db } from "../../service/firebase/firebaseConfig";
 import { useContext, useState, prod } from "react";
 import { CartContext } from "../../CartContext/CartContext";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+
+const generateOrderId = () => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let orderId = "";
+    const length = 8; 
+  
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      orderId += characters.charAt(randomIndex);
+    }
+  
+    return orderId;
+  };
 
 
 const Checkout =()=>{
@@ -22,7 +35,7 @@ const Checkout =()=>{
                 },
                 items: cart,
                 total: sumTotal,
-                date: Timestamp.fromDate(new Date())
+                date: serverTimestamp()
             }
 
             const batch = writeBatch(db)
@@ -39,7 +52,7 @@ const Checkout =()=>{
 
             docs.forEach(doc =>{
                 const dataDoc = doc.data()
-                const stockDb = dataDoc.Stock
+                const stockDb = dataDoc.stock
 
                 const productAddedToCart = cart.find( prod.id === doc.id)
                 const prodQuantity = productAddedToCart?.cantidad
@@ -59,7 +72,8 @@ const Checkout =()=>{
 
                 const orderAdded = await addDoc(orderRef, objOrden)
 
-                setOrderId(orderAdded.id)
+                const generatedOrderId = generateOrderId();
+                setOrderId(generatedOrderId);
                 clearCart()
             }else{
                 console.error("hay productos fuera de stock")
@@ -77,7 +91,7 @@ const Checkout =()=>{
 
     if(orderId){
         return <h2>El Id de su orden es : {orderId}</h2>
-    }
+    } console.log(orderId)
 
     return(
         <div>
