@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import NavBar from './Componentes/NavBar/NavBar';
 import ItemListContainer from './Componentes/ItemListContainer/ItemListContainer';
-import Image from "./Componentes/CartWidget/assets/logogamer.png.png";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ItemDetailContainer from './Componentes/ItemDetailConttainer/ItemDetailContainer';
 import Cart from './Componentes/Cart/Cart';

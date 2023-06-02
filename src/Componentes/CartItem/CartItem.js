@@ -1,9 +1,7 @@
 import "./CartItem.css"
 import React from "react";
-import { useContext } from "react";
-import { CartContext } from "../../CartContext/CartContext"
 import "../CartWidget/CartWidget"
-import { Link } from "react-router-dom";
+
 
 const CartItem = ({ id, Title, Imagen ,Precio, cantidad }) => {
   return (

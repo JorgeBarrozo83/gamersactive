@@ -18,5 +18,11 @@
     list-style-type: none;
 }
 
+.Loading{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+}
+
 
 

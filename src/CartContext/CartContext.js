@@ -1,12 +1,17 @@
+import { Button } from "bootstrap";
 import { createContext, useState} from "react";
 
+
 export const CartContext = createContext({
-    cart:[]
+    cart:[],
+    isLoading: false,
+    setLoading: () => {},
 })
 
 export const CartProvider =({ children })=>{
     const [cart, setCart]= useState([])
-
+    const [isLoading, setIsLoading] = useState(false);
+    
     const getQuantity = () => {
         let cant = 0
         cart.forEach((e) => cant += e.cantidad)
@@ -38,9 +43,13 @@ export const CartProvider =({ children })=>{
     const sumTotal = () =>{
         return cart.reduce((total, item) =>total += item.cantidad * item.Precio, 0)
     }
+    
+    const setLoading = (value) => {
+        setIsLoading(value);
+      };
 
     return(
-        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, sumTotal, getQuantity}}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, sumTotal, getQuantity, isLoading, setLoading}}>
             { children }
         </CartContext.Provider>
     )
